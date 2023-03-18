@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-03-18T15:57:10 UTC" name="Default suite" finished-at="2023-03-18T16:21:20 UTC" duration-ms="1450216">
+    <groups>
+    </groups>
+    <test started-at="2023-03-18T15:57:10 UTC" name="Default test" finished-at="2023-03-18T16:21:20 UTC" duration-ms="1450216">
+      <class name="mut.my_mult">
+        <test-method signature="web()[pri:0, instance:mut.my_mult@65f095f8]" started-at="2023-03-18T15:57:10 UTC" name="web" finished-at="2023-03-18T16:21:20 UTC" duration-ms="1450181" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- web -->
+      </class> <!-- mut.my_mult -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
