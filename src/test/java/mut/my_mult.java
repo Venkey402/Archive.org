@@ -22,6 +22,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import com.opencsv.CSVReader;
@@ -36,9 +38,9 @@ public class my_mult {
 		System.setProperty("webdriver.chrome.driver", userdir + "/src/test/resources/chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		int page_num = 374;
-		int start_num= 261;
-		String book_name = "enjoymentoflaugh0000east";
+		int page_num = 442;
+		int start_num= 409;
+		String book_name = "directingfeature0000trav";
 		String url_withBooknam = "https://archive.org/details/"+book_name+"/page/n";
 		driver.get("https://archive.org/account/login");		
 		driver.findElement(By.xpath("//input[@name='username']")).sendKeys("venkey402@gmail.com");
@@ -48,22 +50,28 @@ public class my_mult {
 		for (int i=start_num;i<page_num;i++)
 		{
 			String final_url = url_withBooknam+i+"/mode/1up";
-			System.out.println(final_url);
-			Thread.sleep(5000);		
+			System.out.println(final_url);	
+			Thread.sleep(4000);
 			driver.get(final_url);
 			System.out.print("url enterered");
-			Thread.sleep(5000);		
-//			WebElement zoomIn = driver.findElement(By.xpath("//button/div[@name='icon icon-magnify plus']"));
-//
-//			zoomIn.click();
-//			zoomIn.click();
-//			zoomIn.click();
+			WebDriverWait w = new WebDriverWait(driver, 20);
+	        w.until(ExpectedConditions
+	                .presenceOfElementLocated(By.xpath("//*[@title='Zoom in']")));
+	       	
+			WebElement zoomIn = driver.findElement(By.xpath("//*[@title=\"Zoom in\"]"));
+
+			zoomIn.click();
+			zoomIn.click();
+			zoomIn.click();
 			WebElement brimage = driver.findElement(By.xpath("//img[@class='BRpageimage']"));
 			String img_url = brimage.getAttribute("src");
 			System.out.println(img_url);
 			driver.get(img_url);
+			driver.findElement(By.xpath("//img")).click();
 			Actions action= new Actions(driver);
 			action.contextClick(driver.findElement(By.xpath("//img"))).build().perform();
+			
+			
 
 			Robot robot = new Robot();
 			// To press D key.
