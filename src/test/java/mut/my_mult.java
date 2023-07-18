@@ -39,16 +39,20 @@ public class my_mult {
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		int page_num = 442;
-		int start_num= 409;
-		String book_name = "directingfeature0000trav";
+		int start_num= 1;
+		String book_name = "onlywritingserie0000dima";
 		String url_withBooknam = "https://archive.org/details/"+book_name+"/page/n";
 		driver.get("https://archive.org/account/login");		
 		driver.findElement(By.xpath("//input[@name='username']")).sendKeys("venkey402@gmail.com");
 		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("@Venkey402");
 		driver.findElement(By.xpath("//input[@name='submit-to-login']")).click();
-
-		for (int i=start_num;i<page_num;i++)
-		{
+		
+		int[] page_nums = {206,208,211,214,217,218,220,221,224};
+// for whole book
+//		for (int i=start_num;i<page_num;i++)
+		// for specific pages
+		for(int i:page_nums)
+		{			
 			String final_url = url_withBooknam+i+"/mode/1up";
 			System.out.println(final_url);	
 			Thread.sleep(4000);
@@ -71,8 +75,6 @@ public class my_mult {
 			Actions action= new Actions(driver);
 			action.contextClick(driver.findElement(By.xpath("//img"))).build().perform();
 			
-			
-
 			Robot robot = new Robot();
 			// To press D key.
 			robot.keyPress(KeyEvent.VK_V);
@@ -80,6 +82,5 @@ public class my_mult {
 			robot.keyPress(KeyEvent.VK_ENTER);
 		}
 	}
-
-
+	
 }
